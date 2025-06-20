@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATM Bank System</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container" id="login-container">
+        <h2>Login to Your Account</h2>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <div id="login-error" class="error-message"></div>
+        </form>
+    </div>
+
+    <div class="container hidden" id="dashboard-container">
+        <h2>Welcome, <span id="user-name"></span>!</h2>
+        <div class="balance-section">
+            <h3>Account Balance:</h3>
+            <p id="balance">$0.00</p>
+        </div>
+        <div class="actions">
+            <button onclick="showSection('transaction-section')">View Transactions</button>
+            <button onclick="showSection('withdraw-section')">Withdraw</button>
+            <button onclick="showSection('deposit-section')">Deposit</button>
+            <button onclick="logout()">Logout</button>
+        </div>
+        
+        <div id="transaction-section" class="section hidden">
+            <h3>Transaction History</h3>
+            <table id="transaction-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Transactions will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="withdraw-section" class="section hidden">
+            <h3>Withdraw Funds</h3>
+            <form id="withdraw-form">
+                <input type="number" id="withdraw-amount" placeholder="Amount" min="1" required>
+                <button type="submit">Withdraw</button>
+                <div id="withdraw-error" class="error-message"></div>
+            </form>
+        </div>
+        
+        <div id="deposit-section" class="section hidden">
+            <h3>Deposit Funds</h3>
+            <form id="deposit-form">
+                <input type="number" id="deposit-amount" placeholder="Amount" min="1" required>
+                <button type="submit">Deposit</button>
+                <div id="deposit-error" class="error-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="static/app.js"></script>
+</body>
+</html>
